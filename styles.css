@@ -1,4 +1,4 @@
-/* DM Sans font faces */
+/* DM Sans local font faces */
 @font-face {
   font-family: 'DM Sans';
   src: url('./assets/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
@@ -15,43 +15,21 @@
   font-display: swap;
 }
 
-/* CSS Custom Properties */
-:root {
-  --purple-100: hsl(254, 88%, 90%);
-  --purple-500: hsl(256, 67%, 59%);
-  --yellow-100: hsl(31, 66%, 93%);
-  --yellow-500: hsl(39, 100%, 71%);
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 7%);
-  --bg: hsl(0, 0%, 96%);
-
-  --font-family: 'DM Sans', sans-serif;
-  --text-base: 18px;
-  --radius: 1.25rem;
-  --gap: 1.5rem;
-}
-
-/* Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Base */
 html {
-  font-size: var(--text-base);
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg);
-  color: var(--black);
-  line-height: 1.15;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-width: 320px;
 }
 
 img {
@@ -60,192 +38,95 @@ img {
   display: block;
 }
 
-/* Bento Grid */
-.bento-grid {
-  display: grid;
-  gap: var(--gap);
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 2rem;
+h1,
+h2,
+p {
+  margin: 0;
 }
 
-/* Card base */
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid hsl(256, 67%, 59%);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Bento grid layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(auto, max-content);
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.bento-grid > * {
+  min-width: 0;
+}
+
 .card {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  border-radius: 1.25rem;
+  padding: clamp(1rem, 4vw, 1.5rem);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-.card h2 {
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
+/* Mobile ordering per design: left-column desktop cards move to bottom */
+.card-hero { order: 1; }
+.card-accounts { order: 2; }
+.card-schedule-post { order: 3; }
+.card-schedule-social { order: 4; }
+.card-grow-followers { order: 5; }
+.card-audience { order: 6; }
+.card-create-post { order: 7; }
+.card-ai-content { order: 8; }
 
-/* Hero card */
-.card-hero {
-  background-color: var(--purple-500);
-  color: var(--white);
-  text-align: center;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  gap: 1rem;
-}
-
+/* Fluid hero type so it never breaks awkwardly on tiny screens */
 .card-hero h1 {
-  font-size: 2.75rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  font-size: clamp(2rem, 10vw, 2.75rem);
 }
 
-.card-hero h1 .accent {
-  color: var(--yellow-500);
-}
-
-.card-hero img {
-  width: 12rem;
-  margin: 0.5rem 0;
-}
-
-.card-hero p {
-  font-size: 1rem;
-  color: var(--purple-100);
-}
-
-/* Accounts card */
-.card-accounts {
-  background-color: var(--white);
-  gap: 1rem;
-}
-
-.card-accounts img {
-  width: 100%;
-  max-width: 320px;
-}
-
-/* Consistent schedule card */
-.card-schedule-post {
-  background-color: var(--yellow-500);
-  gap: 1rem;
-}
-
-.card-schedule-post img {
-  width: 100%;
-  max-width: 220px;
-}
-
-/* Schedule social card */
-.card-schedule-social {
-  background-color: var(--purple-100);
-  gap: 1rem;
-  text-align: center;
-  align-items: center;
-}
-
-.card-schedule-social img {
-  width: 100%;
-  max-width: 320px;
-}
-
-.card-schedule-social p {
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-/* Grow followers card */
-.card-grow-followers {
-  background-color: var(--purple-500);
-  color: var(--white);
-  text-align: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.card-grow-followers h2 {
-  font-size: 2rem;
-}
-
-.card-grow-followers img {
-  width: 100%;
-  max-width: 340px;
-}
-
-/* Audience growth card */
-.card-audience {
-  gap: 0.75rem;
-}
-
-.card-audience .stat {
-  font-size: 3rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-}
-
-.card-audience .label {
-  font-size: 1rem;
-  line-height: 1.25;
-}
-
-.card-audience img {
-  width: 100%;
-  max-width: 280px;
-  margin-top: 0.5rem;
-}
-
-/* Create post card */
-.card-create-post {
-  background-color: var(--yellow-100);
-  gap: 1.25rem;
-}
-
-.card-create-post h2 .accent {
-  color: var(--purple-500);
-  font-style: italic;
-}
-
-.card-create-post img {
-  width: 100%;
-  max-width: 220px;
-}
-
-/* AI content card */
-.card-ai-content {
-  background-color: var(--yellow-500);
-  gap: 1.5rem;
-}
-
-.card-ai-content img {
-  width: 100%;
-  max-width: 260px;
-}
-
-/* Attribution */
-.attribution {
-  font-size: 0.6875rem;
-  text-align: center;
-  color: var(--black);
-}
-
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
-
-/* Desktop layout (1440px design) */
-@media (min-width: 900px) {
-  body {
-    padding: 3rem 1rem;
-    justify-content: center;
+/* Tablets */
+@media (min-width: 640px) and (max-width: 899px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  .card-hero,
+  .card-grow-followers,
+  .card-schedule-social {
+    grid-column: span 2;
+  }
+
+  .card-grow-followers {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: space-around;
+    gap: 1.5rem;
+  }
+
+  .card {
+    order: 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
   .bento-grid {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 3.25rem);
+    grid-template-rows: repeat(10, minmax(3rem, auto));
   }
+
+  .card { order: 0; }
 
   .card-hero {
     grid-column: 2 / span 2;
@@ -253,18 +134,20 @@ img {
     padding: 2.5rem 3rem;
   }
 
+  .card-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+
   .card-accounts {
     grid-column: 2 / span 1;
     grid-row: 5 / span 3;
     justify-content: center;
-    padding: 1.5rem;
   }
 
   .card-schedule-post {
     grid-column: 3 / span 1;
     grid-row: 5 / span 3;
     justify-content: space-between;
-    padding: 1.5rem;
   }
 
   .card-schedule-social {
@@ -288,10 +171,11 @@ img {
     align-items: center;
     text-align: left;
     padding: 1.5rem 2rem;
+    gap: 1.5rem;
   }
 
   .card-grow-followers h2 {
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
     max-width: 12ch;
   }
 
@@ -316,25 +200,15 @@ img {
   }
 }
 
-/* Tablet adjustments */
-@media (min-width: 600px) and (max-width: 899px) {
+/* Large desktops */
+@media (min-width: 1280px) {
   .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, minmax(3.25rem, auto));
   }
+}
 
-  .card-hero {
-    grid-column: span 2;
-  }
-
-  .card-grow-followers {
-    grid-column: span 2;
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    justify-content: space-around;
-  }
-
-  .card-schedule-social {
-    grid-column: span 2;
+@media (min-width: 1536px) {
+  .bento-grid {
+    grid-template-rows: repeat(10, minmax(3.5rem, auto));
   }
 }

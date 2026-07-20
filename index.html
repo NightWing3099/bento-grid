@@ -5,56 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Bento grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'purple-100': 'hsl(254, 88%, 90%)',
+            'purple-500': 'hsl(256, 67%, 59%)',
+            'yellow-100': 'hsl(31, 66%, 93%)',
+            'yellow-500': 'hsl(39, 100%, 71%)',
+            'off-white': 'hsl(0, 0%, 96%)',
+            'bento-black': 'hsl(0, 0%, 7%)',
+          },
+          fontFamily: {
+            sans: ["'DM Sans'", 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="bento-grid">
-    <div class="card card-hero">
-      <h1>Social Media <span class="accent">10x Faster</span> with AI</h1>
-      <img src="./assets/images/illustration-five-stars.webp" alt="Five star rating">
-      <p>Over 4,000 5-star reviews</p>
+<body class="min-h-screen bg-off-white text-bento-black flex flex-col items-center px-4 py-8 md:py-12 leading-tight">
+  <main class="bento-grid w-full max-w-[1200px] mb-8">
+    <div class="card card-hero bg-purple-500 text-white text-center items-center px-6 py-8 gap-4">
+      <h1 class="text-[2.75rem] font-medium tracking-tight leading-[0.95]">Social Media <span class="text-yellow-500">10x Faster</span> with AI</h1>
+      <img src="./assets/images/illustration-five-stars.webp" alt="Five star rating" class="w-48 my-2">
+      <p class="text-base text-purple-100">Over 4,000 5-star reviews</p>
     </div>
 
-    <div class="card card-accounts">
-      <img src="./assets/images/illustration-multiple-platforms.webp" alt="Multiple social media platforms">
-      <h2>Manage multiple accounts and platforms.</h2>
+    <div class="card card-accounts bg-white gap-4">
+      <img src="./assets/images/illustration-multiple-platforms.webp" alt="Multiple social media platforms" class="w-full max-w-[320px]">
+      <h2 class="text-[1.6rem] font-medium tracking-tight leading-none">Manage multiple accounts and platforms.</h2>
     </div>
 
-    <div class="card card-schedule-post">
-      <h2>Maintain a consistent posting schedule.</h2>
-      <img src="./assets/images/illustration-consistent-schedule.webp" alt="Consistent posting schedule">
+    <div class="card card-schedule-post bg-yellow-500 gap-4">
+      <h2 class="text-[1.6rem] font-medium tracking-tight leading-none">Maintain a consistent posting schedule.</h2>
+      <img src="./assets/images/illustration-consistent-schedule.webp" alt="Consistent posting schedule" class="w-full max-w-[220px]">
     </div>
 
-    <div class="card card-schedule-social">
-      <h2>Schedule to social media.</h2>
-      <img src="./assets/images/illustration-schedule-posts.webp" alt="Schedule posts">
-      <p>Optimize post timings to publish content at the perfect time for your audience.</p>
+    <div class="card card-schedule-social bg-purple-100 gap-4 text-center items-center">
+      <h2 class="text-[1.6rem] font-medium tracking-tight leading-none">Schedule to social media.</h2>
+      <img src="./assets/images/illustration-schedule-posts.webp" alt="Schedule posts" class="w-full max-w-[320px]">
+      <p class="text-base leading-snug">Optimize post timings to publish content at the perfect time for your audience.</p>
     </div>
 
-    <div class="card card-grow-followers">
-      <img src="./assets/images/illustration-grow-followers.webp" alt="Follower growth chart">
-      <h2>Grow followers with non-stop content.</h2>
+    <div class="card card-grow-followers bg-purple-500 text-white text-center items-center gap-6">
+      <img src="./assets/images/illustration-grow-followers.webp" alt="Follower growth chart" class="w-full max-w-[340px]">
+      <h2 class="text-[2rem] font-medium tracking-tight leading-none">Grow followers with non-stop content.</h2>
     </div>
 
-    <div class="card card-audience">
-      <p class="stat">>56%</p>
-      <p class="label">faster audience growth</p>
-      <img src="./assets/images/illustration-audience-growth.webp" alt="Audience growth avatars">
+    <div class="card card-audience bg-white gap-3">
+      <p class="text-5xl font-medium tracking-tight">>56%</p>
+      <p class="text-base leading-snug">faster audience growth</p>
+      <img src="./assets/images/illustration-audience-growth.webp" alt="Audience growth avatars" class="w-full max-w-[280px] mt-2">
     </div>
 
-    <div class="card card-create-post">
-      <h2>Create and schedule content <span class="accent">quicker.</span></h2>
-      <img src="./assets/images/illustration-create-post.webp" alt="Create post button">
+    <div class="card card-create-post bg-yellow-100 gap-5">
+      <h2 class="text-[1.6rem] font-medium tracking-tight leading-none">Create and schedule content <span class="text-purple-500 italic">quicker.</span></h2>
+      <img src="./assets/images/illustration-create-post.webp" alt="Create post button" class="w-full max-w-[220px]">
     </div>
 
-    <div class="card card-ai-content">
-      <h2>Write your content using AI.</h2>
-      <img src="./assets/images/illustration-ai-content.webp" alt="AI content chat">
+    <div class="card card-ai-content bg-yellow-500 gap-6">
+      <h2 class="text-[1.6rem] font-medium tracking-tight leading-none">Write your content using AI.</h2>
+      <img src="./assets/images/illustration-ai-content.webp" alt="AI content chat" class="w-full max-w-[260px]">
     </div>
   </main>
 
-  <footer class="attribution">
-    Coded by <a href="#">Iree Hale</a>.
+  <footer class="attribution text-[0.6875rem] text-center text-bento-black">
+    Coded by <a href="#" class="text-blue-600">Iree Hale</a>.
   </footer>
 </body>
 </html>
