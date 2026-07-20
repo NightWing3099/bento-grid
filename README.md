@@ -39,19 +39,7 @@ A responsive, bento-style marketing landing page built as a [Frontend Mentor](ht
 - Combining Tailwind utilities with custom CSS for precise layout control.
 - Optimizing typography and spacing with `clamp()` for fluid scaling.
 
-## Getting Started
-
-1. Clone the repository.
-2. Open `index.html` in your browser, or serve the folder with a local dev server:
-
-```bash
-npx serve .
-```
-
 ## Author
 
 Coded by [Iree Hale](https://github.com/NightWing3099).
 
-## Acknowledgments
-
-Challenge by [Frontend Mentor](https://www.frontendmentor.io).
